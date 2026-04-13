@@ -24,7 +24,7 @@ class AutomataCalculator {
             divisor,
             quotient,
             remainder,
-            equation: `${dividend} = ${divisor}(${quotient}) + ${remainder}`
+            equation: `${dividend.toLocaleString()} = ${divisor.toLocaleString()}(${quotient.toLocaleString()}) + ${remainder.toLocaleString()}`
         };
     }
     /*
@@ -45,14 +45,12 @@ class AutomataCalculator {
         const originalIntegers = [m, n];
         const steps = [];
         let r = -1;
-        let stepCount = 1;
         while (n !== 0) {
             const q = Math.floor(m / n);
             r = m % n;
-            steps.push(`${stepCount}. ${m} = ${n}(${q}) + ${r}`);
+            steps.push(`• ${m.toLocaleString()} = ${n.toLocaleString()}(${q.toLocaleString()}) + ${r.toLocaleString()}`);
             m = n;
             n = r;
-            stepCount++;
         }
         const gcd = m;
         const lcm = (originalIntegers[0] * originalIntegers[1]) / gcd;
@@ -84,10 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const result = AutomataCalculator.divisionAlgorithm(val1, val2);
             document.getElementById("div-equation").textContent = result.equation;
-            document.getElementById("div-dividend").textContent = result.dividend.toString();
-            document.getElementById("div-divisor").textContent = result.divisor.toString();
-            document.getElementById("div-quotient").textContent = result.quotient.toString();
-            document.getElementById("div-remainder").textContent = result.remainder.toString();
+            document.getElementById("div-dividend").textContent = result.dividend.toLocaleString();
+            document.getElementById("div-divisor").textContent = result.divisor.toLocaleString();
+            document.getElementById("div-quotient").textContent = result.quotient.toLocaleString();
+            document.getElementById("div-remainder").textContent = result.remainder.toLocaleString();
             divResults.classList.remove("hidden");
         });
     }
@@ -109,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 stepDiv.textContent = step;
                 stepsContainer.appendChild(stepDiv);
             });
-            document.getElementById("euc-original").textContent = `${result.originalIntegers[0]} and ${result.originalIntegers[1]}`;
-            document.getElementById("euc-gcd").textContent = result.gcd.toString();
-            document.getElementById("euc-lcm").textContent = result.lcm.toString();
+            document.getElementById("euc-original").textContent = `${result.originalIntegers[0].toLocaleString()} and ${result.originalIntegers[1].toLocaleString()}`;
+            document.getElementById("euc-gcd").textContent = result.gcd.toLocaleString();
+            document.getElementById("euc-lcm").textContent = result.lcm.toLocaleString();
             eucResults.classList.remove("hidden");
         });
     }
