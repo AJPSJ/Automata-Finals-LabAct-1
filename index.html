@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automata Lab | Division & Euclidean Algorithms</title>
+    <meta name="description" content="A visual implementation of the Division and Euclidean algorithms.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="container">
+            <h1>Division & Euclidean Algorithms Visualizer</h1>
+            <p>Automata Theory: Laboratory Activity #1</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="grid-layout">
+            <!--
+            PRESENTATION SCRIPT - ACTIVITY 1: DIVISION ALGORITHM (Approx. 2.5 minutes)
+            
+            [Introduction]
+            "Hello everyone. Today, we're going to demonstrate the Division Algorithm, which is a fundamental theorem in arithmetic. It states that for any integer dividend and any positive integer divisor, there exists a unique quotient and remainder. In our application, you can observe Activity 1 right here."
+            
+            [Process]
+            "The process begins by taking two positive integers from the user. Our application will automatically determine the higher integer to act as the dividend (m) and the smaller integer to act as the divisor (n). The goal is to compute the quotient (q) and the remainder (r)."
+            
+            [Instruction/Method to Results]
+            "To reach our conclusion, we simply enter our two numbers—for example, 15 and 40. Once we click 'Calculate', the application computes the result such that m equals n times q, plus r. The result is then formatted explicitly as an equation on the screen, alongside the extracted values for the dividend, divisor, quotient, and remainder."
+            -->
+            <section class="activity-card" id="activity-1">
+                <div class="card-header">
+                    <h2>Activity 1: Division Algorithm</h2>
+                    <p>Computes the integer quotient and remainder.</p>
+                </div>
+                <div class="card-body">
+                    <form id="div-algo-form" class="input-form">
+                        <div class="input-group">
+                            <label for="div-input-1">Integer 1</label>
+                            <input type="number" id="div-input-1" min="1" required placeholder="e.g. 15">
+                        </div>
+                        <div class="input-group">
+                            <label for="div-input-2">Integer 2</label>
+                            <input type="number" id="div-input-2" min="1" required placeholder="e.g. 40">
+                        </div>
+                        <button type="submit" class="primary-btn">Calculate</button>
+                    </form>
+                    <div id="div-results" class="results-container hidden">
+                        <h3>Results</h3>
+                        <div class="equation-box" id="div-equation"></div>
+                        <div class="details-grid">
+                            <div class="detail-item"><span class="label">Dividend:</span> <span class="value"
+                                    id="div-dividend"></span></div>
+                            <div class="detail-item"><span class="label">Divisor:</span> <span class="value"
+                                    id="div-divisor"></span></div>
+                            <div class="detail-item"><span class="label">Quotient:</span> <span class="value"
+                                    id="div-quotient"></span></div>
+                            <div class="detail-item"><span class="label">Remainder:</span> <span class="value"
+                                    id="div-remainder"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--
+            PRESENTATION SCRIPT - ACTIVITY 2: EUCLIDEAN ALGORITHM (Approx. 2.5 minutes)
+            
+            [Introduction]
+            "Moving on to Activity 2, we present the Euclidean Algorithm. This is an efficient, step-by-step method for computing the Greatest Common Divisor, or GCD, of two integers. Additionally, we use the GCD to find the Least Common Multiple, or LCM."
+            
+            [Process]
+            "The process relies on the Division Algorithm we just discussed. Instead of stopping after one division, we continuously apply the division algorithm. The previous divisor becomes the new dividend, and the previous remainder becomes the new divisor. We repeat this cycle until our remainder becomes exactly zero."
+            
+            [Instruction/Method to Results]
+            "Let's see it in action. If we input two numbers, such as 13 and 8, and click 'Calculate', the application lists out every single division step iteratively. The very last non-zero remainder before we hit zero is identified as our GCD. From there, we simply multiply our original integers and divide by the GCD to fetch our resulting LCM, which you can see highlighted here."
+            -->
+            <section class="activity-card" id="activity-2">
+                <div class="card-header">
+                    <h2>Activity 2: Euclidean Algorithm</h2>
+                    <p>Computes GCD and LCM with step-by-step logic.</p>
+                </div>
+                <div class="card-body">
+                    <form id="euc-algo-form" class="input-form">
+                        <div class="input-group">
+                            <label for="euc-input-1">Integer 1</label>
+                            <input type="number" id="euc-input-1" min="1" required placeholder="e.g. 13">
+                        </div>
+                        <div class="input-group">
+                            <label for="euc-input-2">Integer 2</label>
+                            <input type="number" id="euc-input-2" min="1" required placeholder="e.g. 8">
+                        </div>
+                        <button type="submit" class="primary-btn">Calculate</button>
+                    </form>
+                    <div id="euc-results" class="results-container hidden">
+                        <h3>Results</h3>
+                        <div class="step-by-step-box" id="euc-steps">
+                        </div>
+                        <div class="details-grid mt-4">
+                            <div class="detail-item"><span class="label">Integers:</span> <span class="value"
+                                    id="euc-original"></span></div>
+                            <div class="detail-item"><span class="label">GCD:</span> <span class="value"
+                                    id="euc-gcd"></span></div>
+                            <div class="detail-item"><span class="label">LCM:</span> <span class="value highlight-text"
+                                    id="euc-lcm"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>:3</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
